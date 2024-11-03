@@ -1,0 +1,90 @@
+<hr>
+
+<div class="container">
+    <div class="content1">
+        <section class="recipe-directions">
+            <header>
+                <svg fill="#000000" width="800px" height="800px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path
+                        d="M26 3 A 1.0001 1.0001 0 0 0 25 4L25 7.6972656L21.167969 13.445312 A 1.0001 1.0001 0 0 0 21.166016 13.447266 A 1.0001 1.0001 0 0 0 21.130859 13.505859 A 1.0001 1.0001 0 0 0 21.111328 13.542969 A 1.0001 1.0001 0 0 0 21.105469 13.558594 A 1.0001 1.0001 0 0 0 21.037109 13.732422 A 1.0001 1.0001 0 0 0 21.033203 13.748047 A 1.0001 1.0001 0 0 0 21.017578 13.816406 A 1.0001 1.0001 0 0 0 21.003906 13.90625 A 1.0001 1.0001 0 0 0 21.003906 13.914062 A 1.0001 1.0001 0 0 0 21 14 A 1.0001 1.0001 0 0 0 21 14.011719L21 20L5 20 A 1.0001 1.0001 0 0 0 4 21L4 45 A 1.0001 1.0001 0 0 0 5 46L14.275391 46C15.040306 46.872658 15.962077 47.569588 16.976562 48.027344C19.557836 49.192064 22.896153 48.926876 25.537109 46.894531 A 1.0001 1.0001 0 0 0 26 47L39 47L45 47 A 1.0001 1.0001 0 0 0 46 46L46 14 A 1.0001 1.0001 0 0 0 45.894531 13.552734L43 7.7636719L43 4 A 1.0001 1.0001 0 0 0 42 3L26 3 z M 27 5L41 5L41 7L27 7L27 5 z M 26.535156 9L40.382812 9L38.382812 13L23.869141 13L26.535156 9 z M 42 10.236328L44 14.236328L44 45L40 45L40 14.236328L42 10.236328 z M 23 15L38 15L38 45L27.378906 45C27.836847 44.384682 28.253606 43.697922 28.605469 42.917969C29.82748 40.209741 30.243093 37.066535 29.869141 34.294922C29.495189 31.523309 28.310947 29.004254 26.023438 27.972656C25.451584 27.714611 24.856442 27.571327 24.248047 27.523438C23.836595 27.49105 23.419451 27.509295 23 27.560547L23 21L23 15 z M 6 22L21 22L21 28 A 1.0001 1.0001 0 0 0 21.003906 28.082031C20.230505 28.384537 19.468236 28.786964 18.740234 29.273438C16.41485 30.827333 14.331355 33.219577 13.109375 35.927734C11.755522 38.92815 11.922502 41.766212 12.96875 44L6 44L6 22 z M 24.064453 29.527344C24.475261 29.553208 24.857775 29.64192 25.201172 29.796875C26.574663 30.416278 27.567171 32.19216 27.886719 34.560547C28.206267 36.928934 27.832189 39.770931 26.783203 42.095703C24.705876 46.700399 20.586111 47.462754 17.798828 46.205078C15.011465 44.947365 12.854414 41.353558 14.931641 36.75C15.980661 34.425157 17.864447 32.265354 19.851562 30.9375C20.845122 30.273573 21.838486 29.833234 22.755859 29.636719C23.214546 29.538461 23.653646 29.501479 24.064453 29.527344 z" />
+                </svg>
+                <h3>Ingredients</h3>
+            </header>
+            <dl>
+                @for (ig of ingredients; track $index) {
+                <dd>
+                    <input type="checkbox" class="check" name="step" aria-labelledby="heading1 step1"
+                        aria-describedby="desc1">
+                    <p class="step" id="desc1">
+                        <span>{{ ig }}</span>
+                    </p>
+                </dd>
+                }
+            </dl>
+        </section>
+    
+    </div>
+    
+    <div class="content2">
+        <section class="recipe-directions">
+            <header>
+                <svg aria-hidden="true">
+                    <use href="#hat" />
+                </svg>
+                <h3>Instructions</h3>
+            </header>
+            <dl>
+                @for (ist of instructions; track $index) {
+                <dd>
+                    <input type="checkbox" class="check" name="step" aria-labelledby="heading1 step1"
+                        aria-describedby="desc1">
+                    <p class="step" id="desc1">
+                        <span>{{ ist }}</span>
+                    </p>
+                </dd>
+                }
+            </dl>
+            <footer>
+                <svg aria-hidden="true">
+                    <use href="#bowl" />
+                </svg>
+                <h3>Enjoy your meal!</h3>
+            </footer>
+        </section>
+    
+        <svg style="display: none;">
+            <symbol id="hat" viewBox="0 0 24.02 21">
+                <title>Chefs hat</title>
+                <g>
+                    <path d="M3.76,11.25h16.5v8a1,1,0,0,1-1,1H4.76a1,1,0,0,1-1-1v-8Z" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></path>
+                    <path d="M3.76,12a6,6,0,0,1,3-11.2c4.5,0,5.25,4.5,9,4.5" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></path>
+                    <path d="M20.26,12a6,6,0,0,0-3-11.2C14.72.75,13.37,2.18,12,3.43" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></path>
+                    <line x1="8.26" y1="15.75" x2="8.26" y2="17.25" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></line>
+                    <line x1="12.01" y1="15.75" x2="12.01" y2="17.25" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></line>
+                    <line x1="15.76" y1="15.75" x2="15.76" y2="17.25" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></line>
+                </g>
+            </symbol>
+            <symbol id="bowl" viewBox="0 0 24 24">
+                <g>
+                    <path d="M17,.75c1.44,2.87-2.9,3.88-.75,6.75" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5"></path>
+                    <path d="M12.53.75C14,3.62,9.63,4.63,11.78,7.5" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></path>
+                    <path d="M8,.75c1.44,2.87-2.9,3.88-.75,6.75" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5"></path>
+                    <ellipse cx="12" cy="12.75" rx="11.25" ry="3" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5"></ellipse>
+                    <path d="M23.25,12.75c0,5.8-5,10.5-11.25,10.5S.75,18.55.75,12.75" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5"></path>
+                </g>
+            </symbol>
+        </svg>
+    </div>
+</div>

@@ -1,0 +1,168 @@
+.recipe-directions {
+    max-width: 600px;
+    display: grid;
+    grid: repeat(3, max-content) / max-content 1fr;
+    gap: 10px 20px;
+
+    &::before {
+        content: "";
+        grid-area: 2 / 1 / -2;
+        width: 10px;
+        background: radial-gradient(circle at 50% 50%, #ccc 2px, transparent 0 10px) 0 0 / 10px 10px round space;
+        justify-self: center;
+    }
+}
+
+header,
+dl,
+footer {
+    grid-column: 1 / -1;
+}
+
+header,
+footer {
+    display: grid;
+    grid: auto / subgrid;
+    align-items: center;
+}
+
+h3,
+footer p {
+    font-size: 1.6rem;
+}
+
+header {
+    grid-row: 1;
+}
+
+header svg,
+footer svg {
+    width: 32px;
+    height: 32px;
+}
+
+svg>* {
+    stroke: #2b2b2b;
+}
+
+footer {
+    grid-row-end: -1;
+}
+
+dl {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+dl>* {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+dt {
+    grid-column: 2;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+dd+dd,
+dd+dt {
+    margin-top: 1.6rem;
+}
+
+dd {
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    margin: 0;
+    align-items: start;
+}
+
+.step {
+    transition: 0.3s;
+}
+
+.step span {
+    display: inline;
+    background-image: linear-gradient(#4b4b4b, #4b4b4b);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 55%;
+    transition: 0.3s;
+}
+
+/* === Check mark === */
+.check {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    grid-column: 1;
+    display: inline grid;
+    justify-self: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 2px solid #cecece;
+    background: #fff;
+    box-shadow: 0 0 0 10px #fff;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 0 0 0 3px hsl(117.5, 69%, 50%);
+        border-color: hsl(117.5, 79.2%, 35%);
+    }
+
+    &::after {
+        content: "";
+        width: 7px;
+        height: 12px;
+        border-radius: 0;
+        border: 2px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        transition: 0.3s;
+        transform: translateY(-1px) scale(0.2) rotate(0deg);
+        place-self: center;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    &:checked {
+        background: #19a413;
+        border-color: #19a413;
+    }
+
+    &:checked::after {
+        opacity: 1;
+        transform: translateY(-0.1rem) scale(1) rotate(45deg);
+    }
+
+    &:checked~.step span {
+        color: #777;
+        background-size: 100% 2px;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .content1 {
+        margin: 1em 25%
+    }
+    .content2 {
+        margin: 1em 25% 3em;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .container {
+        .content1 {
+            margin: 1em 10%;
+        }
+        .content2 {
+            margin: 1em 10% 3em;
+        }
+    }
+}

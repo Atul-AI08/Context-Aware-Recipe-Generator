@@ -1,0 +1,103 @@
+<hr>
+
+<div class="main">
+    <div>
+        <h1>Context</h1>
+    </div>
+    <div class="diet">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h3>
+                Dietary Preference
+            </h3>
+            <p>
+                Choose a dietary preference
+            </p>
+        </div>
+        <div class="pref">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="preference" id="vegan"
+                    (change)="checkAndRemoveContext('Vegetarian'); checkAndRemoveContext('Non-Vegetarian'); addContext('Vegan');">
+                <label class="form-check-label" for="vegan">
+                    Vegan
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="preference" id="veg"
+                    (change)="checkAndRemoveContext('Vegan'); checkAndRemoveContext('Non-Vegetarian'); addContext('Vegetarian');">
+                <label class="form-check-label" for="veg">
+                    Vegetarian
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="preference" id="non-veg"
+                    (change)="checkAndRemoveContext('Vegan'); checkAndRemoveContext('Vegetarian'); addContext('Non-Vegetarian');">
+                <label class="form-check-label" for="non-veg">
+                    Non-Vegetarian
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="diet">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h3>
+                Additional Requirements
+            </h3>
+            <p>
+                Select additional dietary contexts
+            </p>
+        </div>
+        <div class="options">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gluten-free" (change)="addContext('Gluten Free')">
+                <label class="form-check-label" for="gluten-free">
+                    Gluten-Free
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="nut-free" (change)="addContext('Nut Free')">
+                <label class="form-check-label" for="nut-free">
+                    Nut-Free
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="dairy-free" (change)="addContext('Dairy Free')">
+                <label class="form-check-label" for="dairy-free">
+                    Dairy-Free
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="low-carb" (change)="addContext('Low Carb')">
+                <label class="form-check-label" for="low-carb">
+                    Low Carb
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="high-protien" (change)="addContext('High Protien')">
+                <label class="form-check-label" for="high-protien">
+                    High Protein
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sugar-free" (change)="addContext('Sugar Free')">
+                <label class="form-check-label" for="sugar-free">
+                    Sugar-Free
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="low-calorie" (change)="addContext('Low Calorie')">
+                <label class="form-check-label" for="low-calorie">
+                    Low Calorie
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="organic" (change)="addContext('Organic')">
+                <label class="form-check-label" for="organic">
+                    Organic Ingredients
+                </label>
+            </div>
+        </div>
+    </div>
+    <button class="search-button" (click)="onContextChange()">
+        Get Recipe
+    </button>
+</div>
