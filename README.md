@@ -112,5 +112,3 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 - The open-source community for supporting libraries and frameworks.
 
 ---
-
-Let me know if you'd like to adjust any part of this template or include more details!
