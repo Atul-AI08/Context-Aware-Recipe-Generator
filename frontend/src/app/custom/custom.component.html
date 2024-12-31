@@ -1,0 +1,21 @@
+@if (isLoading) {
+<div id="pause" class="d-flex align-items-center justify-content-center">
+    <div id="spinner"></div>
+</div>
+}
+
+<div class="main">
+    <div class="search d-flex">
+        <input type="text" [(ngModel)]="dish" class="form-control search-box" placeholder="Enter Dish Name" />
+    </div>
+    <div class="search recipe">
+        <textarea class="form-control" placeholder="Enter your recipe's ingredients and instructions"></textarea>
+    </div>
+</div>
+
+<app-context (contextChange)="setContext($event)"></app-context>
+
+<div id="recipe"></div>
+@if (ingredients.length > 0) {
+<app-recipe [ingredients]="ingredients" [instructions]="instructions"></app-recipe>
+}

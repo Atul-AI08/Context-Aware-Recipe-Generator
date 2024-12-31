@@ -1,5 +1,5 @@
-@mixin underline-transition($width){
-    &::after{
+@mixin underline-transition($width) {
+    &::after {
         content: '';
         display: block;
         bottom: 0;
@@ -10,15 +10,15 @@
         transition-property: transform;
         transition-duration: 0.2s;
     }
-    &:hover{
-        &::after{
+
+    &:hover {
+        &::after {
             transform: scaleX($width);
         }
     }
 }
 
-html body{
+html body {
     margin: 0;
     padding: 0;
-    background-color: white;
 }

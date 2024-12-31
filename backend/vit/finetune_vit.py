@@ -1,5 +1,5 @@
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFile
 
 import torch
 from transformers import (
@@ -19,7 +19,6 @@ from torchvision.transforms import (
     Resize,
     ToTensor,
 )
-from PIL import ImageFile
 from datasets import load_dataset
 
 import warnings

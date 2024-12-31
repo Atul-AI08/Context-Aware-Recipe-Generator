@@ -20,9 +20,12 @@ export class HomeComponent {
   query = '';
   image: string = '';
   dish: string = '';
+  skill_level: string = 'Beginner';
   context: string[] = [];
   ingredients: string[] = [];
   instructions: string[] = [];
+
+  isLoading = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -59,12 +62,15 @@ export class HomeComponent {
     }
   }
 
-  setContext(context: string[]) {
-    this.context = context;
+  setContext(event: { context: string[], skill_level: string }) {
+    this.context = event.context;
+    this.skill_level = event.skill_level;
+    this.isLoading = true;
 
-    this.apiService.getRecipe(this.dish, this.context).subscribe((data: any) => {
+    this.apiService.getRecipe(this.dish, this.context, this.skill_level).subscribe((data: any) => {
       this.ingredients = data.ingredients;
       this.instructions = data.instructions;
+      this.isLoading = false;
       setTimeout(() => {
         this.scroll('recipe');
       }, 100);

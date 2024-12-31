@@ -13,7 +13,11 @@ export class ApiService {
     return this.http.post('http://localhost:8000/predict', formData);
   }
 
-  getRecipe(dish: string, context: string[]): Observable<any> {
-    return this.http.post('http://localhost:8001/generate-recipe', { 'dish_name': dish, 'dietary_preferences': context });
+  getRecipe(dish: string, context: string[], skill_level: string): Observable<any> {
+    return this.http.post('http://localhost:8000/generate-recipe', { 'dish_name': dish, 'dietary_preferences': context, 'skill_level': skill_level });
+  }
+
+  getCustomRecipe(dish: string, recipe: string, context: string[], skill_level: string): Observable<any> {
+    return this.http.post('http://localhost:8000/custom-recipe', { 'dish_name': dish, 'recipe': recipe, 'dietary_preferences': context, 'skill_level': skill_level });
   }
 }
