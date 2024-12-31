@@ -4,6 +4,8 @@
 
 It uses a fine-tuned Vision Transformer (ViT) model with LoRA (Low-Rank Adaptation) for image-based recognition and incorporates user-defined contexts (e.g., "vegan", "low-calorie") to customize recipe results. The app fetches recipe data using the Tavily search API and generates detailed recipes through a LLaMA model accessed via the Groq API. For customizing recipes, the system uses ChromaDB and Ollama for ingredient substitution and recipe transformation.
 
+---
+
 ## 🚀 Features
 
 - **Image-Based Dish Recognition**: Upload an image to identify a dish using a fine-tuned ViT model with LoRA.
@@ -49,7 +51,9 @@ It uses a fine-tuned Vision Transformer (ViT) model with LoRA (Low-Rank Adaptati
 - **Dependencies**:
   - `torch`, `transformers`, `langchain`, `fastapi`, `pydantic`, `torchvision`, `ollama`, `chromadb`, etc.
 
-## Installation
+---
+
+## 📋 Installation
 
 1. **Clone the Repository**:
    ```bash
