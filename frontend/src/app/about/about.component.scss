@@ -8,45 +8,6 @@
     box-sizing: border-box;
 }
 
-header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    box-shadow: 0 4px 15px -2px gray;
-    background-color: #1b7651;
-    color: white;
-
-    .nav {
-        width: 20%;
-        display: inline-block;
-
-        ul {
-            display: flex;
-            list-style: none;
-
-            li {
-                padding: 20px;
-                font-size: 1.3em;
-                @include underline-transition(1.0);
-
-                a {
-                    text-decoration: none;
-                    color: white;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-
-    .heading {
-        width: 70%;
-        padding: 20px;
-        font-size: 2.8em;
-        text-align: center;
-        font-weight: 400;
-        display: inline-block;
-    }
-}
-
 .main {
     padding: 2em 24%;
     display: flex;
@@ -67,20 +28,6 @@ header {
 }
 
 @media screen and (max-width: 680px) {
-    header {
-        width: 100%;
-
-        .nav {
-            width: 100%;
-            display: block;
-        }
-
-        .heading {
-            width: 100%;
-            display: block;
-            font-size: 2em;
-        }
-    }
     .main {
         padding: 2em 10%;
     }

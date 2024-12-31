@@ -8,11 +8,16 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './context.component.scss'
 })
 export class ContextComponent {
+  skill_level: string  = "Beginner";
   context: string[] = [];
 
-  @Output() contextChange = new EventEmitter<string[]>();
+  @Output() contextChange = new EventEmitter<{ context: string[], skill_level: string }>();
   onContextChange() {
-    this.contextChange.emit(this.context);
+    this.contextChange.emit({ context: this.context, skill_level: this.skill_level });
+  }
+
+  changeSkillLevel(level: string) {
+    this.skill_level = level;
   }
 
   addContext(c: string) {

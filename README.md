@@ -1,10 +1,10 @@
 # Context-Aware Recipe Generator
 
-## Overview
+**Adapt-a-dish** is an AI-powered recipe transformation assistant that customizes recipes based on dietary preferences, skill level, and serving size. Whether you're vegan, gluten-free, or exploring healthier options, Adapt-a-dish adapts your favorite recipes into personalized culinary masterpieces.  
 
-The **Context-Aware Recipe Generator** is an intelligent web application that suggests recipes based on dish names or images. It uses a fine-tuned Vision Transformer (ViT) model with LoRA (Low-Rank Adaptation) for image-based recognition and incorporates user-defined contexts (e.g., "vegan", "low-calorie") to customize recipe results. The app fetches recipe data using the Tavily search API and generates detailed recipes through a LLaMA model accessed via the Groq API.
+It uses a fine-tuned Vision Transformer (ViT) model with LoRA (Low-Rank Adaptation) for image-based recognition and incorporates user-defined contexts (e.g., "vegan", "low-calorie") to customize recipe results. The app fetches recipe data using the Tavily search API and generates detailed recipes through a LLaMA model accessed via the Groq API. For customizing recipes, the system uses ChromaDB and Ollama for ingredient substitution and recipe transformation.
 
-## Features
+## 🚀 Features
 
 - **Image-Based Dish Recognition**: Upload an image to identify a dish using a fine-tuned ViT model with LoRA.
 - **Text-Based Dish Input**: Input a dish name directly for recipe generation.
@@ -12,34 +12,42 @@ The **Context-Aware Recipe Generator** is an intelligent web application that su
   - Vegan
   - Low-calorie
   - High-protein, etc.
-- **Recipe Generation**: Generates recipes with ingredients and step-by-step instructions using Tably's search API and LLaMA provided by the Groq API.
+- **Recipe Generation**: Generates recipes with ingredients and step-by-step instructions using Tavily's search API and LLaMA 3.1 provided by the Groq API.
 - **User-Friendly Interface**: Simple and interactive frontend developed in Angular.
 
-## Architecture
+### For Customizing Recipes:
+- **Ingredient Substitution**: Uses ChromaDB for finding suitable ingredient replacements.
+- **Recipe Transformation**: Ollama is used for transforming recipes based on dietary preferences and skill level.
 
-1. **Input Stage**:
-   - Accepts either a dish name or an image.
-   - Images are processed using a fine-tuned ViT model with LoRA to identify the dish.
-2. **Context Customization**:
-   - Users can select dietary or nutritional contexts (e.g., vegan, low-calorie).
-3. **Recipe Generation**:
-   - Integrates with the Tably search API for recipe data.
-   - Uses the LLaMA model via the Groq API for generating detailed recipe instructions.
-4. **Output**:
-   - Displays the full recipe with context-based ingredients and instructions.
+---
 
-## Tech Stack
+## 📚 How It Works  
+
+1. **User Input**:  
+   - Provide the dish name, dietary preferences (e.g., vegan, gluten-free), serving size, and a recipe to adapt.  
+
+2. **AI Query**:  
+   - The system uses the provided dish name and preferences to retrieve substitution ideas and context.  
+
+3. **Recipe Transformation**:  
+   - The recipe is adjusted with dietary-friendly ingredients and cooking instructions tailored to the skill level.  
+
+4. **Output**:  
+   - The system generates a personalized recipe with detailed ingredients and instructions.  
+
+---
+
+## 🛠️ Tech Stack
 
 - **Backend**:
-  - **Frameworks**: FastAPI
-  - **Core Libraries**: PyTorch, LangChain, Transformers, Torchvision
+  - FastAPI, Ollama, ChromaDB, PyTorch, LangChain, Transformers, Torchvision
 - **Frontend**:
   - **Framework**: Angular
 - **APIs**:
   - **[Tavily API](https://tavily.com/)**: For finding relevant recipes.
   - **[Groq API](https://groq.com/) (LLaMA)**: For generating detailed recipe content.
 - **Dependencies**:
-  - `torch`, `transformers`, `langchain`, `fastapi`, `pydantic`, `torchvision`, etc.
+  - `torch`, `transformers`, `langchain`, `fastapi`, `pydantic`, `torchvision`, `ollama`, `chromadb`, etc.
 
 ## Installation
 
@@ -52,19 +60,21 @@ The **Context-Aware Recipe Generator** is an intelligent web application that su
 2. **Finetune ViT**:
    Ensure Python 3.8+ is installed along with required libraries, then run:
    ```bash
-   cd backend
+   cd backend/vit/
    python finetune_vit.py
    ```
-   Dataset Used: [The-massive-Indian-Food-Dataset](The-massive-Indian-Food-Dataset)
+   Dataset Used: [The-massive-Indian-Food-Dataset](https://www.kaggle.com/datasets/anshulmehtakaggl/themassiveindianfooddataset)
 
 3. **Set Up APIs**:
    Create API keys for Tavily and Groq
 
 4. **Run the Backend**:
    ```bash
-   cd backend
+   cd backend/vit/
    python dish_detect.py
-   python generate.py
+   cd ../generation/
+   ollama serve
+   python main.py
    ```
 
 5. **Run the Frontend**:
@@ -75,14 +85,9 @@ The **Context-Aware Recipe Generator** is an intelligent web application that su
    ng serve
    ```
 
-## Usage
+---
 
-1. **Upload an Image**: Users can upload an image of a dish.
-2. **Enter a Dish Name**: Alternatively, users can input the dish name directly.
-3. **Choose Contexts**: Select dietary preferences such as "vegan" or "low-calorie".
-4. **View the Recipe**: The app processes the input and displays a recipe tailored to the selected context.
-
-## Example Images
+## 🌐 Example Images
 
 ### Input and Recognition
 ![Upload Image](images/pic1.png)
@@ -97,20 +102,12 @@ The **Context-Aware Recipe Generator** is an intelligent web application that su
 ![Recipe Output](images/pic4.png)
 *Generated recipe with ingredients and instructions.*
 
-## Contributing
+---
 
-Contributions are welcome! Fork the repository and submit a pull request for review.
-
-## License
-
+## 📄 License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
-
-## Acknowledgements
-
-- **LoRA and ViT**: For efficient model fine-tuning.
-- **Tavily and Groq APIs**: For comprehensive search and generative capabilities.
-- The open-source community for supporting libraries and frameworks.
 
 ---
 
-Let me know if you'd like to adjust any part of this template or include more details!
+## 🤝 Contributing
+Contributions are welcome! Fork the repository and submit a pull request for review.
